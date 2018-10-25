@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         this.getSupportActionBar().hide();
 
         Button buttonPlay = (Button)findViewById(R.id.btnPlay);
-        final Intent intentPlay = new Intent(this, FullscreenActivity.class);
+        final Intent intentPlay = new Intent(this, AnimationActivity.class);
 
         FloatingActionButton fabConfig = (FloatingActionButton) findViewById(R.id.fabConfig);
         final Intent intentConfig = new Intent(this, LoginActivity.class);
