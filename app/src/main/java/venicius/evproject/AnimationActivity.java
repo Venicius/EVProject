@@ -1,5 +1,6 @@
 package venicius.evproject;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,21 +19,11 @@ public class AnimationActivity extends AppCompatActivity {
         hideSystemUI();
         mContentView = findViewById(R.id.fullscreen_content2);
 
-        mContentView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //toggle();
-                Animation animZoom;
-                ImageView imgCentral;
 
-                animZoom = AnimationUtils.loadAnimation(getApplicationContext(),
-                        R.anim.zoom_in);
-
-                imgCentral = (ImageView) findViewById(R.id.imageView);
-
-                imgCentral.startAnimation(animZoom);
-            }
-        });
+        for(int i=0; i<3; i++) {
+            mHandler.postDelayed(mRunInicial, 3000);
+            mHandler.postDelayed(mRunGeral, 12000);
+        }
 
 
     }
@@ -71,4 +62,48 @@ public class AnimationActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
     }
+
+   //exeução depois de alguns segundos
+    private Runnable mRun = new Runnable () {
+        @Override
+        public void run() {
+            ImageView imgFundo = (ImageView) findViewById(R.id.imageView3);
+            imgFundo.setImageResource(R.drawable.logo);
+        }
+    };
+
+    private Runnable mRunInicial = new Runnable () {
+        @Override
+        public void run() {
+            mContentView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //toggle();
+                    Animation animZoom;
+                    ImageView imgCentral;
+
+                    animZoom = AnimationUtils.loadAnimation(getApplicationContext(),
+                            R.anim.zoom_in);
+
+                    imgCentral = (ImageView) findViewById(R.id.imageView);
+
+                    imgCentral.startAnimation(animZoom);
+                    //depois dos 3 segundos de animação, + 3 de espera até passar o proximo slide
+                    mHandler.postDelayed(mRun, 6000);
+
+                }
+            });
+        }
+    };
+
+    private Runnable mRunGeral = new Runnable () {
+        @Override
+        public void run() {
+            ImageView imgFundo = (ImageView) findViewById(R.id.imageView3);
+            imgFundo.setImageResource(R.drawable.logo);
+        }
+    };
+
+    Handler mHandler = new Handler();
+
 }

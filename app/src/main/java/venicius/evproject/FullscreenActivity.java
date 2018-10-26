@@ -112,6 +112,7 @@ public class FullscreenActivity extends AppCompatActivity {
                 imgCentral = (ImageView) findViewById(R.id.imageView);
 
                 imgCentral.startAnimation(animZoom);
+
             }
         });
 
