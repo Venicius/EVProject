@@ -18,8 +18,8 @@ public class AnimationActivity extends AppCompatActivity {
 
     Handler mHandler = new Handler();
 
-    int arrayCentral[] = {R.drawable.cavalo};
-    int arrayFundos[] = {R.drawable.alvo_preto_branco};
+    int arrayCentral[] = {R.drawable.cavalo, R.drawable.rosto_amarelo};
+    int arrayFundos[] = {R.drawable.alvo_preto_branco, R.drawable.fundo_azul};
 
     int cont=0;
 
@@ -40,15 +40,27 @@ public class AnimationActivity extends AppCompatActivity {
         imgCentral = (ImageView) findViewById(R.id.imageView);
         imgFundo = (ImageView) findViewById(R.id.imageView3);
 
-        iniciarSequencia();
+        mHandler.postDelayed(mRunNovaImagem, 00000);
 
     }
 
+    private Runnable mRunNovaImagem = new Runnable () {
+        @Override
+        public void run() {
+            if (cont < arrayCentral.length){
+                imgCentral.setImageResource(arrayCentral[cont]);
+                imgFundo.setImageResource(arrayFundos[cont]);
+                imgCentral.setAnimation(null);
+                mHandler.postDelayed(mRunInicial, 3000);
+                startTimer();
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "FIM",Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
+    };
     private void iniciarSequencia(){
-        imgCentral.setImageResource(arrayCentral[cont]);
-        imgFundo.setImageResource(arrayFundos[cont]);
-        mHandler.postDelayed(mRunInicial, 3000);
-        startTimer();
+
     }
 
 
@@ -63,9 +75,8 @@ public class AnimationActivity extends AppCompatActivity {
             public void onFinish() {
                 mTimerRunning = false;
                 resetTimer();
-                Toast toast = Toast.makeText(getApplicationContext(), "Finish",Toast.LENGTH_LONG);
-                toast.show();
-                iniciarSequencia();
+                cont++;
+                mHandler.postDelayed(mRunNovaImagem, 00000);
 
             }
         }.start();
@@ -93,40 +104,21 @@ public class AnimationActivity extends AppCompatActivity {
             mContentView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //toggle();
-                    Animation animZoom;
-                    animZoom = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
-                    imgCentral.startAnimation(animZoom);
+
+                    Animation animZoomIn;
+                    animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
+                    imgCentral.startAnimation(animZoomIn);
+
+                    pauseTimer();
+                    resetTimer();
+                    cont++;
                     //depois dos 3 segundos de animação, + 3 de espera até passar o proximo slide
-                   pauseTimer();
-                   resetTimer();
-                   iniciarSequencia();
+                    mHandler.postDelayed(mRunNovaImagem, 5000);
 
                 }
             });//tocou na imagem
-            //mHandler.postDelayed(mRun, 12000);
         }
     };
-
-    //troca de imagens
-    private Runnable mRun = new Runnable () {
-        @Override
-        public void run() {
-            cont = cont++;
-            imgFundo.setImageResource(arrayFundos[cont]);
-        }
-    };
-
-   /* private Runnable mRunGeral = new Runnable () {
-        @Override
-        public void run() {
-            ImageView imgFundo = (ImageView) findViewById(R.id.imageView3);
-            imgFundo.setImageResource(R.drawable.logo);
-        }
-    };*/
-
-
-
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
