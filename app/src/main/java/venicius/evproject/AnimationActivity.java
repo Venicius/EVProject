@@ -1,5 +1,7 @@
 package venicius.evproject;
 
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -15,15 +17,17 @@ public class AnimationActivity extends AppCompatActivity {
     private View mContentView;
     private ImageView imgCentral;
     private ImageView imgFundo;
+    private MediaPlayer mp;
 
     Handler mHandler = new Handler();
 
-    int arrayCentral[] = {R.drawable.cavalo, R.drawable.rosto_amarelo};
-    int arrayFundos[] = {R.drawable.alvo_preto_branco, R.drawable.fundo_azul};
+    int arrayCentral[] = {R.drawable.cavalo, R.drawable.rosto_amarelo, R.drawable.cavalo};
+    int arrayFundos[] = {R.drawable.alvo_preto_branco, R.drawable.fundo_azul,R.drawable.alvo_preto_branco};
+    int arraySons[] = {R.raw.horse, R.raw.cat,R.raw.horse};
 
     int cont=0;
 
-    private static final long START_TIME_IN_MILLIS = 12000;
+    private static final long START_TIME_IN_MILLIS = 15000;
     private CountDownTimer mCountDownTimer;
     private boolean mTimerRunning;
 
@@ -51,6 +55,7 @@ public class AnimationActivity extends AppCompatActivity {
                 imgCentral.setImageResource(arrayCentral[cont]);
                 imgFundo.setImageResource(arrayFundos[cont]);
                 imgCentral.setAnimation(null);
+                mp = MediaPlayer.create(AnimationActivity.this, arraySons[cont]);
                 mHandler.postDelayed(mRunInicial, 3000);
                 startTimer();
             } else {
@@ -59,10 +64,19 @@ public class AnimationActivity extends AppCompatActivity {
             }
         }
     };
-    private void iniciarSequencia(){
 
+    //animação da imagem, ao tocar ou ao fim do tempo
+    private void animarImagem(){
+        Animation animZoomIn;
+        animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
+        imgCentral.startAnimation(animZoomIn);
+        mp.start();
+        pauseTimer();
+        resetTimer();
+        cont++;
+        //depois dos 3 segundos de animação, + 3 de espera até passar o proximo slide
+        mHandler.postDelayed(mRunNovaImagem, 6000);
     }
-
 
     private void startTimer() {
         mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
@@ -74,28 +88,13 @@ public class AnimationActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 mTimerRunning = false;
-                resetTimer();
-                cont++;
-                mHandler.postDelayed(mRunNovaImagem, 00000);
-
+                animarImagem();
             }
         }.start();
-
         mTimerRunning = true;
-
     }
 
-    private void pauseTimer() {
-        mCountDownTimer.cancel();
-        mTimerRunning = false;
-
-    }
-
-    private void resetTimer() {
-        mTimeLeftInMillis = START_TIME_IN_MILLIS;
-
-    }
-
+    //esperando o clique na figura
       private Runnable mRunInicial = new Runnable () {
         @Override
         public void run() {
@@ -104,22 +103,23 @@ public class AnimationActivity extends AppCompatActivity {
             mContentView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    Animation animZoomIn;
-                    animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
-                    imgCentral.startAnimation(animZoomIn);
-
-                    pauseTimer();
-                    resetTimer();
-                    cont++;
-                    //depois dos 3 segundos de animação, + 3 de espera até passar o proximo slide
-                    mHandler.postDelayed(mRunNovaImagem, 5000);
-
+                    animarImagem();
                 }
-            });//tocou na imagem
+                });//tocou na imagem
         }
     };
 
+    //funções para pausar e zerar o contador
+    private void pauseTimer() {
+        mCountDownTimer.cancel();
+        mTimerRunning = false;
+    }
+
+    private void resetTimer() {
+        mTimeLeftInMillis = START_TIME_IN_MILLIS;
+    }
+
+    //Aqui para baixo configurções de tela cheia
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -127,6 +127,7 @@ public class AnimationActivity extends AppCompatActivity {
             hideSystemUI();
         }
     }
+
 
     private void hideSystemUI() {
         // Enables regular immersive mode.
