@@ -56,6 +56,7 @@ public class AnimationActivity extends AppCompatActivity {
                 imgFundo.setImageResource(arrayFundos[cont]);
                 imgCentral.setAnimation(null);
                 mp = MediaPlayer.create(AnimationActivity.this, arraySons[cont]);
+                mContentView.setClickable(true);
                 mHandler.postDelayed(mRunInicial, 3000);
                 startTimer();
             } else {
@@ -103,6 +104,7 @@ public class AnimationActivity extends AppCompatActivity {
             mContentView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    mContentView.setClickable(false);
                     animarImagem();
                 }
                 });//tocou na imagem
