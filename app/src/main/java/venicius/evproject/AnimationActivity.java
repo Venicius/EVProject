@@ -21,9 +21,12 @@ public class AnimationActivity extends AppCompatActivity {
 
     Handler mHandler = new Handler();
 
-    int arrayCentral[] = {R.drawable.cavalo, R.drawable.rosto_amarelo, R.drawable.cavalo};
-    int arrayFundos[] = {R.drawable.alvo_preto_branco, R.drawable.fundo_azul,R.drawable.alvo_preto_branco};
-    int arraySons[] = {R.raw.horse, R.raw.cat,R.raw.horse};
+    int arrayCentral[] = {R.drawable.centro_sino,R.drawable.centro_galinho,R.drawable.centro_rostoamarelofeliz, R.drawable.centro_sino,R.drawable.centro_sino,R.drawable.centro_sino,R.drawable.centro_boneco,R.drawable.centro_panda,R.drawable.centro_rostoamarelofeliz2,R.drawable.centro_macaco,R.drawable.centro_tigre,R.drawable.centro_pintinho,R.drawable.centro_cavalo,R.drawable.centro_rostoamarelofeliz3,R.drawable.centro_sino,R.drawable.centro_sapo,R.drawable.centro_girafa,R.drawable.centro_caracolvermelho,R.drawable.centro_garoto1,R.drawable.centro_garoto2,R.drawable.centro_rostoverde,R.drawable.centro_sino,R.drawable.centro_lagarta,R.drawable.centro_guaxinin,R.drawable.centro_porco,R.drawable.centro_cao,R.drawable.centro_garoto3,R.drawable.centro_pinguin,R.drawable.centro_menina1};
+
+
+    int arrayFundos[] = {R.drawable.fundo_alvo,R.drawable.fundo_preto,R.drawable.fundo_azul,R.drawable.fundo_xadrez,R.drawable.fundo_alvovermelho_verde, R.drawable.fundo_alvoazul_amarelo,R.drawable.fundo_verdelimao,R.drawable.fundo_vermelho,R.drawable.fundo_azul,R.drawable.fundo_xadrez,R.drawable.fundo_verdelimao,R.drawable.fundo_azul,R.drawable.fundo_alvo,R.drawable.fundo_verdelimao,R.drawable.fundo_azul,R.drawable.fundo_alvoxadrez,R.drawable.fundo_alvo,R.drawable.fundo_xadrez,R.drawable.fundo_amarelo,R.drawable.fundo_vermelho,R.drawable.fundo_azulescuro,R.drawable.fundo_vermelho,R.drawable.fundo_caracol,R.drawable.fundo_lilas,R.drawable.fundo_azul,R.drawable.fundo_alvo,R.drawable.fundo_xadrez,R.drawable.fundo_amarelo,R.drawable.fundo_verdelimao,R.drawable.fundo_cinza};
+
+    int arraySons[] = {R.raw.som_padrao,R.raw.som_galinho,R.raw.som_rostinhoamarelofeliz,R.raw.som_padrao,R.raw.som_padrao,R.raw.som_padrao,R.raw.som_rostinhoamarelofeliz,R.raw.som_panda,R.raw.som_rostinhoamarelofeliz,R.raw.som_macaco,R.raw.som_tigre,R.raw.som_pintinho,R.raw.som_cavalo,R.raw.som_rostinhoamarelofeliz,R.raw.som_rostinhoamarelofeliz,R.raw.som_padrao,R.raw.som_sapo,R.raw.som_padrao,R.raw.som_padrao,R.raw.som_rostinhoamarelofeliz,R.raw.som_rostinhoamarelofeliz,R.raw.som_rostinhoamarelofeliz,R.raw.som_padrao,R.raw.som_padrao,R.raw.som_guaxinin,R.raw.som_porco,R.raw.som_cao,R.raw.som_rostinhoamarelofeliz,R.raw.som_padrao,R.raw.som_rostinhoamarelofeliz};
 
     int cont=0;
 

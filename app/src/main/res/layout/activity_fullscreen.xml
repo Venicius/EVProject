@@ -29,7 +29,7 @@
             android:id="@+id/imageView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/alvo_preto_branco"
+
             android:layout_gravity="center|center_horizontal"
             android:padding="0dp"
             android:layout_margin="0dp"
@@ -39,7 +39,7 @@
             android:id="@+id/imageView"
             android:layout_width="90dp"
             android:layout_height="120dp"
-            android:src="@drawable/cavalo"
+
             android:layout_gravity="center|center_horizontal"/>
 
         <LinearLayout
