@@ -1,5 +1,6 @@
 package venicius.evproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
         editTextUser = (EditText) findViewById(R.id.edtUser);
         editTextSenha = (EditText) findViewById(R.id.edtSenha);
 
+        final Intent intentConfig = new Intent(this, ConfigActivity.class);
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(getApplicationContext(), "Senha incorreta!",Toast.LENGTH_SHORT);
                     toast.show();
                 } else {
-
+                    startActivity(intentConfig);
                 }
             }
         });

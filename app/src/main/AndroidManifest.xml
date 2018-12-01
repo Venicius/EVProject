@@ -19,8 +19,9 @@
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".AnimationActivity"
-            android:screenOrientation="landscape"
-            ></activity>
+            android:screenOrientation="landscape" />
+        <activity android:name=".ConfigActivity" />
+        <activity android:name=".EditarSequenciaActivity"></activity>
     </application>
 
 </manifest>

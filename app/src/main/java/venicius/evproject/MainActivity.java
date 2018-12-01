@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         final Intent intentPlay = new Intent(this, AnimationActivity.class);
 
         FloatingActionButton fabConfig = (FloatingActionButton) findViewById(R.id.fabConfig);
+
         final Intent intentConfig = new Intent(this, LoginActivity.class);
 
         fabConfig.setOnClickListener(new View.OnClickListener() {
