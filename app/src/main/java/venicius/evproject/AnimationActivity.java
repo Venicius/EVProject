@@ -167,4 +167,18 @@ public class AnimationActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
     }
 
+    @Override
+    protected void onStop() {
+        mp.stop();
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        mp.stop();
+        super.onPause();
+
+    }
 }
+
+

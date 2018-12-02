@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login"
     android:orientation="vertical"
     tools:context=".LoginActivity">
 
@@ -12,7 +11,8 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:layout_margin="10dp"/>
 
     <EditText
         android:id="@+id/edtUser"
@@ -26,7 +26,7 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Usuário"
-        android:inputType="textPersonName" />
+        android:inputType="textVisiblePassword" />
 
     <EditText
         android:id="@+id/edtSenha"
@@ -51,7 +51,8 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@drawable/bt_login"
+        android:textColor="#FFF"
+        android:background="@color/colorPrimary"
         android:text="Entrar" />
 
 

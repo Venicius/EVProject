@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/bg_home">
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="PLAY"
-        android:textColor="#000"
+       android:text="INICIAR"
+        android:textColor="#FFF"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498"
-        android:background="@drawable/botao_play"/>
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabConfig"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fabSize="mini"
-        android:backgroundTint="#00b300"
-        android:layout_margin="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:layout_gravity="top|end"
         android:src="@drawable/btn_settings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:fabSize="mini" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        app:srcCompat="@drawable/unifesp_logo"
+        android:layout_gravity="bottom|start"/>
+
+    <ImageView
+    android:id="@+id/imageView6"
+    android:layout_width="100sp"
+    android:layout_height="100sp"
+    app:srcCompat="@drawable/medhacker_logo"
+    android:layout_gravity="bottom|center"/>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+
+        android:layout_gravity="bottom|end"/>
 
 
-
-</android.support.constraint.ConstraintLayout>
+</FrameLayout>

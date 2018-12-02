@@ -5,9 +5,8 @@
 
     <ImageView
         android:id="@+id/image_view_flag"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/fundo_alvo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="center"/>
 
     <TextView
@@ -16,7 +15,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:gravity="center"
-        android:text="fundo_alvo"
         android:textColor="@android:color/black"
         android:textSize="10dp" />
 
