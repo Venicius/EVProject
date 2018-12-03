@@ -32,6 +32,8 @@ public class AnimationActivity extends AppCompatActivity {
 
     Handler mHandler = new Handler();
 
+    ArrayList<Integer> arrayListCentros = new ArrayList<Integer>();
+
     int arrayCentral[] = {R.drawable.centro_sino,R.drawable.centro_galinho,R.drawable.centro_rostoamarelofeliz, R.drawable.centro_sino,R.drawable.centro_sino,R.drawable.centro_sino,R.drawable.centro_boneco,R.drawable.centro_panda,R.drawable.centro_rostoamarelofeliz2,R.drawable.centro_macaco,R.drawable.centro_tigre,R.drawable.centro_pintinho,R.drawable.centro_cavalo,R.drawable.centro_rostovermelho,R.drawable.centro_rostoamarelofeliz3,R.drawable.centro_sino,R.drawable.centro_sapo,R.drawable.centro_girafa,R.drawable.centro_caracolvermelho,R.drawable.centro_garoto1,R.drawable.centro_garoto2,R.drawable.centro_rostoverde,R.drawable.centro_sino,R.drawable.centro_lagarta,R.drawable.centro_guaxinin,R.drawable.centro_porco,R.drawable.centro_cao,R.drawable.centro_garoto3,R.drawable.centro_pinguin,R.drawable.centro_menina1};
 
 
@@ -59,15 +61,16 @@ public class AnimationActivity extends AppCompatActivity {
                 "venicius.evp.PREFERENCE_FILE_KEY",
                 Context.MODE_PRIVATE);
 
-/*
+
         flagSeq = sharedPref.getBoolean("sequencia", false);
 
-        if(flagSeq){
-            ArrayList<Integer> arl = new ArrayList<Integer>();
-            arl.add(R.drawable.bg_home);
+        if(!flagSeq){
+            arrayListCentros.add(R.drawable.centro_sino);
+            arrayListCentros.add(R.drawable.centro_galinho);
+
         }
 
-        final BancoController crud = new BancoController(getBaseContext());
+      /*  final BancoController crud = new BancoController(getBaseContext());
         Cursor cursor;
 
         cursor = crud.carregaDados();
