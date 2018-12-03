@@ -1,7 +1,10 @@
 package venicius.evproject;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
+import android.database.Cursor;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -14,11 +17,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import venicius.evproject.model.BancoController;
+import venicius.evproject.model.CriaBanco;
+
 public class AnimationActivity extends AppCompatActivity {
     private View mContentView;
     private ImageView imgCentral;
     private ImageView imgFundo;
     private MediaPlayer mp;
+
+    Boolean flagSeq;
 
     Handler mHandler = new Handler();
 
@@ -44,14 +52,35 @@ public class AnimationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_animation);
         this.getSupportActionBar().hide();
         hideSystemUI();
+
+        SharedPreferences sharedPref = this.getSharedPreferences(
+                "venicius.evp.PREFERENCE_FILE_KEY",
+                Context.MODE_PRIVATE);
+
+
+        flagSeq = sharedPref.getBoolean("sequencia", false);
+
+        if(!flagSeq){
+
+
+
+        }
+
+        final BancoController crud = new BancoController(getBaseContext());
+        Cursor cursor;
+
+        cursor = crud.carregaDados();
+        cursor.moveToFirst();
+
+
+        Toast toast = Toast.makeText(getApplicationContext(), cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.FUNDO)),Toast.LENGTH_LONG);
+        toast.show();
+
+
         intentMain = new Intent(this, MainActivity.class);
-
-
         mContentView = findViewById(R.id.fullscreen_content2);
         imgCentral = (ImageView) findViewById(R.id.imageView);
         imgFundo = (ImageView) findViewById(R.id.imageView3);
-
-
         mHandler.postDelayed(mRunNovaImagem, 00000);
 
     }

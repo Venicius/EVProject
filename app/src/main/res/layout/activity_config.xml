@@ -7,14 +7,7 @@
     android:orientation="vertical"
     tools:context=".ConfigActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo"
-        android:layout_margin="10dp"/>
-
-    <Button
+     <Button
         android:id="@+id/btnEditarSequencia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
