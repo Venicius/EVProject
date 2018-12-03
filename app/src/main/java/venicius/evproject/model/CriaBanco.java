@@ -18,7 +18,6 @@ public class CriaBanco extends SQLiteOpenHelper {
     public static final int VERSAO = 1;
 
     public CriaBanco(@Nullable Context context) {
-
         super(context, NOME_BANCO, null,VERSAO);
     }
 
@@ -26,9 +25,9 @@ public class CriaBanco extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE " + TABELA +"("
                 + ID + " integer primary key autoincrement,"
-                + FUNDO + " text,"
-                + CENTRO + " text,"
-                + SOM + " text"
+                + FUNDO + " integer,"
+                + CENTRO + " int,"
+                + SOM + " int"
                 +")";
 
         db.execSQL(sql);

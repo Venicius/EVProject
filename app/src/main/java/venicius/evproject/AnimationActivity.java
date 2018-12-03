@@ -17,6 +17,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import venicius.evproject.model.BancoController;
 import venicius.evproject.model.CriaBanco;
 
@@ -57,13 +59,12 @@ public class AnimationActivity extends AppCompatActivity {
                 "venicius.evp.PREFERENCE_FILE_KEY",
                 Context.MODE_PRIVATE);
 
-
+/*
         flagSeq = sharedPref.getBoolean("sequencia", false);
 
-        if(!flagSeq){
-
-
-
+        if(flagSeq){
+            ArrayList<Integer> arl = new ArrayList<Integer>();
+            arl.add(R.drawable.bg_home);
         }
 
         final BancoController crud = new BancoController(getBaseContext());
@@ -74,8 +75,7 @@ public class AnimationActivity extends AppCompatActivity {
 
 
         Toast toast = Toast.makeText(getApplicationContext(), cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.FUNDO)),Toast.LENGTH_LONG);
-        toast.show();
-
+        toast.show();*/
 
         intentMain = new Intent(this, MainActivity.class);
         mContentView = findViewById(R.id.fullscreen_content2);

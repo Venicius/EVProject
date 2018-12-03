@@ -14,7 +14,7 @@ public class BancoController {
         banco = new CriaBanco(context);
     }
 
-    public String insereDado(String fundo, String centro, String som){
+    public String insereDado(int fundo, int centro, int som){
         ContentValues valores;
         long resultado;
 

@@ -35,9 +35,9 @@ public class EditarSequenciaActivity extends AppCompatActivity {
     private FundoAdapter mAdapterFundos;
     private FundoAdapter mAdapterCentros;
     private FundoAdapter mAdapterSons;
-    String clickedItemFundoNameFundo;
-    String clickedItemFundoNameCentro;
-    String clickedItemFundoNameSom;
+    int clickedItemFundoNameFundo;
+    int clickedItemFundoNameCentro;
+    int clickedItemFundoNameSom;
     Button adicionar;
     Button finalizar;
 
@@ -71,7 +71,7 @@ public class EditarSequenciaActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 FundoItem clickedItem = (FundoItem) parent.getItemAtPosition(position);
-                clickedItemFundoNameFundo = clickedItem.getFundoName();
+                clickedItemFundoNameFundo = clickedItem.getFlagImage();
             }
 
             @Override
@@ -84,7 +84,7 @@ public class EditarSequenciaActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 FundoItem clickedItem = (FundoItem) parent.getItemAtPosition(position);
-                clickedItemFundoNameCentro = clickedItem.getFundoName();
+                clickedItemFundoNameCentro = clickedItem.getFlagImage();
             }
 
             @Override
@@ -97,7 +97,7 @@ public class EditarSequenciaActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 FundoItem clickedItem = (FundoItem) parent.getItemAtPosition(position);
-                clickedItemFundoNameSom = clickedItem.getFundoName();
+                clickedItemFundoNameSom = clickedItem.getFlagImage();
             }
 
             @Override
@@ -129,14 +129,17 @@ public class EditarSequenciaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences sharedPref = getSharedPreferences(
+              /*  SharedPreferences sharedPref = getSharedPreferences(
                         "venicius.evp.PREFERENCE_FILE_KEY",
                         Context.MODE_PRIVATE);
 
                 //salvando configurações
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("sequencia",true);
-                editor.apply();
+                editor.apply(); */
+
+
+
              }
         });
 
