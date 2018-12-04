@@ -1,5 +1,8 @@
 package venicius.evproject.controller;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,21 +18,25 @@ import venicius.evproject.R;
 import venicius.evproject.model.BancoController;
 import venicius.evproject.view.FundoAdapter;
 import venicius.evproject.view.FundoItem;
+import venicius.evproject.view.SomAdapter;
+import venicius.evproject.view.SomItem;
 
 public class EditarSequenciaActivity extends AppCompatActivity {
 
     TextView numImagem;
     private ArrayList<FundoItem> mFundosList;
     private ArrayList<FundoItem> mCentrosList;
-    private ArrayList<FundoItem> mSonsList;
+    private ArrayList<SomItem> mSonsList;
     private FundoAdapter mAdapterFundos;
     private FundoAdapter mAdapterCentros;
-    private FundoAdapter mAdapterSons;
+    private SomAdapter mAdapterSons;
     int clickedItemFundoNameFundo;
     int clickedItemFundoNameCentro;
     int clickedItemFundoNameSom;
     Button adicionar;
     Button finalizar;
+
+    Intent intentMain;
 
 
 
@@ -37,6 +44,8 @@ public class EditarSequenciaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_sequencia);
+
+        intentMain = new Intent(this,MainActivity.class);
 
         numImagem = (TextView) findViewById(R.id.numeroImagem);
         initListFundos();
@@ -51,7 +60,8 @@ public class EditarSequenciaActivity extends AppCompatActivity {
         spinnerFundos.setAdapter(mAdapterFundos);
         mAdapterCentros = new FundoAdapter(this, mCentrosList);
         spinnerCentros.setAdapter(mAdapterCentros);
-        mAdapterSons = new FundoAdapter(this, mSonsList);
+
+        mAdapterSons = new SomAdapter(this, mSonsList);
         spinnerSons.setAdapter(mAdapterSons);
 
         final BancoController crud = new BancoController(getBaseContext());
@@ -86,8 +96,8 @@ public class EditarSequenciaActivity extends AppCompatActivity {
         spinnerSons.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                FundoItem clickedItem = (FundoItem) parent.getItemAtPosition(position);
-                clickedItemFundoNameSom = clickedItem.getFlagImage();
+                SomItem clickedItem = (SomItem) parent.getItemAtPosition(position);
+                clickedItemFundoNameSom = clickedItem.getSomName();
             }
 
             @Override
@@ -119,23 +129,21 @@ public class EditarSequenciaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-              /*  SharedPreferences sharedPref = getSharedPreferences(
+                SharedPreferences sharedPref = getSharedPreferences(
                         "venicius.evp.PREFERENCE_FILE_KEY",
                         Context.MODE_PRIVATE);
 
                 //salvando configurações
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putBoolean("sequencia",true);
-                editor.apply(); */
+                editor.apply();
 
-
+                Toast toast = Toast.makeText(getApplicationContext(), "Sequência criada!",Toast.LENGTH_SHORT);
+                toast.show();
+                startActivity(intentMain);
 
              }
         });
-
-
-
-
     }
 
     private void initListFundos() {
@@ -179,18 +187,18 @@ public class EditarSequenciaActivity extends AppCompatActivity {
 
     private void initListSons() {
         mSonsList = new ArrayList<>();
-        mSonsList.add(new FundoItem("som_padrao", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_cao", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_cavalo", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_galinho", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_rostinhoamarelofeliz", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_panda", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_macaco", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_tigre", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_pintinho", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_sapo", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_guaxinin", R.drawable.ic_son));
-        mSonsList.add(new FundoItem("som_porco", R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_padrao, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_cao, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_cavalo, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_galinho, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_rostinhoamarelofeliz, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_panda, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_macaco, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_tigre, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_pintinho, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_sapo, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_guaxinin, R.drawable.ic_son));
+        mSonsList.add(new SomItem(R.raw.som_porco, R.drawable.ic_son));
     }
 
 
