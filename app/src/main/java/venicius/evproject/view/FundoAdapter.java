@@ -1,4 +1,4 @@
-package venicius.evproject;
+package venicius.evproject.view;
 
 
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import venicius.evproject.R;
 
 
 public class FundoAdapter  extends ArrayAdapter<FundoItem> {

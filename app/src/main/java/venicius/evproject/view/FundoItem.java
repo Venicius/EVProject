@@ -1,4 +1,4 @@
-package venicius.evproject;
+package venicius.evproject.view;
 
 public class FundoItem {
 

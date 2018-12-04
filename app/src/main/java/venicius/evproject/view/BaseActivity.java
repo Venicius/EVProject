@@ -1,4 +1,4 @@
-package venicius.evproject;
+package venicius.evproject.view;
 
 
 import android.app.ProgressDialog;

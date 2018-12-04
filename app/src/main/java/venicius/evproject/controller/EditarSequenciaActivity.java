@@ -1,30 +1,20 @@
-package venicius.evproject;
+package venicius.evproject.controller;
 
-import android.app.ProgressDialog;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import javax.xml.datatype.Duration;
-
+import venicius.evproject.R;
 import venicius.evproject.model.BancoController;
-import venicius.evproject.model.CriaBanco;
+import venicius.evproject.view.FundoAdapter;
+import venicius.evproject.view.FundoItem;
 
 public class EditarSequenciaActivity extends AppCompatActivity {
 
