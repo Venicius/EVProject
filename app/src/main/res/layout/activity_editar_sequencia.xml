@@ -86,6 +86,9 @@
                 android:textColor="#FFF"
                 android:background="@color/colorPrimary"
                 android:text="Finalizar Sequência" />
+
+
+
         </LinearLayout>
     </ScrollView>
 
