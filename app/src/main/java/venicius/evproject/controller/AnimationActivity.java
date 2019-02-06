@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import venicius.evproject.model.*;
 
@@ -201,6 +204,8 @@ public class AnimationActivity extends AppCompatActivity {
                 //imgFundo.setImageResource(arrayListFundos.get(cont));
                 mContentView.setBackgroundResource(arrayListFundos.get(cont));
                 imgCentral.setAnimation(null);
+                mContentView.setAnimation(null);
+               //imgFundo.setAnimation(null);
                 mp = MediaPlayer.create(AnimationActivity.this, arrayListSons.get(cont));
                 mContentView.setClickable(false);
                 mHandler.postDelayed(mRunInicial, 3000);
@@ -214,10 +219,16 @@ public class AnimationActivity extends AppCompatActivity {
     };
 
     //animação da imagem, ao tocar ou ao fim do tempo
+
     private void animarImagem(){
         Animation animZoomIn;
         animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
-        imgCentral.startAnimation(animZoomIn);
+
+        if(arrayListCentros.get(cont) == R.drawable.centro_transparente){
+            mContentView.startAnimation(animZoomIn);
+        } else {
+            imgCentral.startAnimation(animZoomIn);
+        }
         mp.start();
         pauseTimer();
         resetTimer();
