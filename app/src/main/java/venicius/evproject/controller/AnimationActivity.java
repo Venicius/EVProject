@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import venicius.evproject.model.*;
+
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -54,6 +56,7 @@ public class AnimationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_animation);
         this.getSupportActionBar().hide();
         hideSystemUI();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         intentMain = new Intent(this,MainActivity.class);
         mContentView = findViewById(R.id.fullscreen_content2);
@@ -100,12 +103,12 @@ public class AnimationActivity extends AppCompatActivity {
             arrayListFundos.add(R.drawable.fundo_verdelimao);
             arrayListFundos.add(R.drawable.fundo_cinza);
 
-            arrayListCentros.add(R.drawable.centro_sino);
+            arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_galinho);
             arrayListCentros.add(R.drawable.centro_rostoamarelofeliz);
-            arrayListCentros.add(R.drawable.centro_sino);
-            arrayListCentros.add(R.drawable.centro_sino);
-            arrayListCentros.add(R.drawable.centro_sino);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_boneco);
             arrayListCentros.add(R.drawable.centro_panda);
             arrayListCentros.add(R.drawable.centro_rostoamarelofeliz2);
@@ -115,14 +118,14 @@ public class AnimationActivity extends AppCompatActivity {
             arrayListCentros.add(R.drawable.centro_cavalo);
             arrayListCentros.add(R.drawable.centro_rostovermelho);
             arrayListCentros.add(R.drawable.centro_rostoamarelofeliz3);
-            arrayListCentros.add(R.drawable.centro_sino);
+            arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_sapo);
             arrayListCentros.add(R.drawable.centro_girafa);
             arrayListCentros.add(R.drawable.centro_caracolvermelho);
             arrayListCentros.add(R.drawable.centro_garoto1);
             arrayListCentros.add(R.drawable.centro_garoto2);
             arrayListCentros.add(R.drawable.centro_rostoverde);
-            arrayListCentros.add(R.drawable.centro_sino);
+            arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_lagarta);
             arrayListCentros.add(R.drawable.centro_guaxinin);
             arrayListCentros.add(R.drawable.centro_porco);
@@ -195,7 +198,8 @@ public class AnimationActivity extends AppCompatActivity {
         public void run() {
             if (cont < arrayListFundos.size()){
                 imgCentral.setImageResource(arrayListCentros.get(cont));
-                imgFundo.setImageResource(arrayListFundos.get(cont));
+                //imgFundo.setImageResource(arrayListFundos.get(cont));
+                mContentView.setBackgroundResource(arrayListFundos.get(cont));
                 imgCentral.setAnimation(null);
                 mp = MediaPlayer.create(AnimationActivity.this, arrayListSons.get(cont));
                 mContentView.setClickable(false);
