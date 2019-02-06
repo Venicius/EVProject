@@ -196,6 +196,8 @@ public class AnimationActivity extends AppCompatActivity {
 
     }
 
+
+
     private Runnable mRunNovaImagem = new Runnable () {
         @Override
         public void run() {
@@ -229,7 +231,9 @@ public class AnimationActivity extends AppCompatActivity {
         } else {
             imgCentral.startAnimation(animZoomIn);
         }
-        mp.start();
+        if(mp!=null) {
+            mp.start();
+        }
         pauseTimer();
         resetTimer();
         cont++;
@@ -318,16 +322,31 @@ public class AnimationActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
+        super.onStop();
         cont=0;
-       super.onStop();
     }
 
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         cont=0;
-       super.onDestroy();
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();  // Always call the superclass method first
+        cont = 0;
+
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        super.onBackPressed();
+
+    }
+
 }
 
 
