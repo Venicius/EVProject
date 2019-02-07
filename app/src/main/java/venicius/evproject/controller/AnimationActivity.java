@@ -35,6 +35,7 @@ public class AnimationActivity extends AppCompatActivity {
     private MediaPlayer mp;
 
     Boolean flagSeq;
+    Boolean flagAudio = true;
 
     Handler mHandler = new Handler();
 
@@ -208,7 +209,9 @@ public class AnimationActivity extends AppCompatActivity {
                 imgCentral.setAnimation(null);
                 mContentView.setAnimation(null);
                //imgFundo.setAnimation(null);
-                mp = MediaPlayer.create(AnimationActivity.this, arrayListSons.get(cont));
+                if(flagAudio){
+                    mp = MediaPlayer.create(AnimationActivity.this, arrayListSons.get(cont));
+                }
                 mContentView.setClickable(false);
                 mHandler.postDelayed(mRunInicial, 3000);
                 startTimer();
@@ -324,6 +327,7 @@ public class AnimationActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         cont=0;
+        this.finish();
     }
 
 
@@ -331,12 +335,17 @@ public class AnimationActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         cont=0;
+        this.finish();
     }
 
     @Override
     public void onPause() {
         super.onPause();  // Always call the superclass method first
         cont = 0;
+        mp.stop();
+        flagAudio=false;
+        this.finish();
+
 
     }
 
@@ -344,6 +353,10 @@ public class AnimationActivity extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
+        cont = 0;
+        mp.stop();
+        flagAudio=false;
+        this.finish();
 
     }
 
