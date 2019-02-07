@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        fabConfig.setOnClickListener(new View.OnClickListener() {
+        fabCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(intentCalendar);
