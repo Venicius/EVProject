@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".controller.CalendarActivity"></activity>
         <activity android:name=".controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +22,7 @@
             android:name=".controller.AnimationActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".controller.ConfigActivity" />
-        <activity android:name=".controller.EditarSequenciaActivity"></activity>
+        <activity android:name=".controller.EditarSequenciaActivity" />
     </application>
 
 </manifest>

@@ -21,13 +21,22 @@ public class MainActivity extends AppCompatActivity {
         final Intent intentPlay = new Intent(this, AnimationActivity.class);
 
         FloatingActionButton fabConfig = (FloatingActionButton) findViewById(R.id.fabConfig);
+        FloatingActionButton fabCalendar = (FloatingActionButton) findViewById(R.id.fabCalendar);
 
         final Intent intentConfig = new Intent(this, LoginActivity.class);
+        final Intent intentCalendar = new Intent(this, CalendarActivity.class);
 
         fabConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(intentConfig);
+            }
+        });
+
+        fabConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intentCalendar);
             }
         });
 
