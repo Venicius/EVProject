@@ -23,6 +23,9 @@ import android.widget.Toast;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import venicius.evproject.R;
 import venicius.evproject.model.BancoController;
@@ -70,6 +73,8 @@ public class AnimationActivity extends AppCompatActivity {
         SharedPreferences sharedPref = this.getSharedPreferences(
                 "venicius.evp.PREFERENCE_FILE_KEY",
                 Context.MODE_PRIVATE);
+
+
 
 
         flagSeq = sharedPref.getBoolean("sequencia", false);
@@ -216,8 +221,15 @@ public class AnimationActivity extends AppCompatActivity {
                 mHandler.postDelayed(mRunInicial, 3000);
                 startTimer();
             } else {
-                Toast toast = Toast.makeText(getApplicationContext(), "FIM",Toast.LENGTH_LONG);
-                toast.show();
+                Calendar calendar1 = new GregorianCalendar();
+                final BancoController crud2 = new BancoController(getBaseContext());
+                String resultado;
+                Date data = new Date();
+                resultado = crud2.insereData(2,1);
+
+                Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+                //Toast toast = Toast.makeText(getApplicationContext(), "FIM",Toast.LENGTH_LONG);
+                //toast.show();
                 startActivity(intentMain);
             }
         }

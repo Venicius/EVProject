@@ -33,6 +33,24 @@ public class BancoController {
             return "Registro Inserido com sucesso";
     }
 
+    public String insereData(int dia, int feito){
+        ContentValues valores;
+        long resultado;
+
+        db = banco.getWritableDatabase();
+        valores = new ContentValues();
+        valores.put(CriaBanco.DIA, dia);
+        valores.put(CriaBanco.FEITO, feito);
+
+        resultado = db.insert(CriaBanco.TABELADATAS, null, valores);
+        db.close();
+
+        if (resultado ==-1)
+            return "Erro ao inserir registro";
+        else
+            return "Registro Inserido com sucesso";
+    }
+
     public Cursor carregaDados(){
         Cursor cursor;
         String[] campos =  {banco.FUNDO, banco.CENTRO,banco.SOM};
@@ -67,5 +85,9 @@ public class BancoController {
         db.close();
 
     }
+
+
+
+
 
 }
