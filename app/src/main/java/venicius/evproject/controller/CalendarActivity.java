@@ -1,17 +1,25 @@
 package venicius.evproject.controller;
 
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
 import venicius.evproject.R;
+import venicius.evproject.model.BancoController;
+import venicius.evproject.model.BancoControllerDatas;
+import venicius.evproject.model.CriaBanco;
+import venicius.evproject.model.CriaBancoDatas;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -21,26 +29,45 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
         this.getSupportActionBar().hide();
         CalendarView mCalendar = (CalendarView) findViewById(R.id.calendarView);
+
         List<EventDay> events = new ArrayList<>();
-        Calendar calendar1 = new GregorianCalendar();
-        Calendar calendar2 = new GregorianCalendar();
-        calendar1.set(2019,1,10);
+        Calendar calendar = new GregorianCalendar();
         mCalendar.showCurrentMonthPage();
 
-        events.add(0,new EventDay(calendar1, R.drawable.close_outline));
 
-        calendar1=null;
-        calendar1=new GregorianCalendar();
-
-        calendar1.set(2019,1,11);
-
-        events.add(1,new EventDay(calendar1, R.drawable.check_outline));
+        final BancoControllerDatas crud = new BancoControllerDatas(getBaseContext());
+        Cursor cursor;
+        cursor = crud.carregaDados();
+        cursor.moveToFirst();
+        String dia;
 
 
+        boolean flagCursor=true;
+        while (flagCursor){
+
+            if (cursor.isLast()){
+                flagCursor = false;
+            }
+
+            dia = cursor.getString(cursor.getColumnIndexOrThrow(CriaBancoDatas.DIA));
+
+            Log.d("TEste",dia);
+
+            calendar = null;
+            calendar = new GregorianCalendar();
+
+            calendar.set(Integer.parseInt(dia.substring(0,4)),(Integer.parseInt(dia.substring(5,7)))-1,Integer.parseInt(dia.substring(8,10)));
+
+           Log.d("teste",dia.substring(0,4));
+            Log.d("teste",dia.substring(5,7));
+            Log.d("teste",dia.substring(8,10));
+
+            events.add( new EventDay(calendar, R.drawable.check_outline));
+
+           cursor.moveToNext();
+        }
 
         mCalendar.setEvents(events);
-
-
     }
 
     public long getLongAsDate(int year, int month, int date) {

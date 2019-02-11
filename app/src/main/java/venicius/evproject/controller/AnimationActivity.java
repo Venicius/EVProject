@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -221,11 +222,15 @@ public class AnimationActivity extends AppCompatActivity {
                 mHandler.postDelayed(mRunInicial, 3000);
                 startTimer();
             } else {
-                Calendar calendar1 = new GregorianCalendar();
+                Calendar calendar = new GregorianCalendar();
                 final BancoControllerDatas crud2 = new BancoControllerDatas(getBaseContext());
                 String resultado;
-                Date data = new Date();
-                resultado = crud2.insereData(2,1);
+
+                SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Date dt = new Date();
+                String dataformatada=dtFormat.format(dt);
+
+               resultado = crud2.insereData(dataformatada,1);
 
                 Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
                 //Toast toast = Toast.makeText(getApplicationContext(), "FIM",Toast.LENGTH_LONG);

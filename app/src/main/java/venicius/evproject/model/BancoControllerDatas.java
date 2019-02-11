@@ -14,7 +14,7 @@ public class BancoControllerDatas {
         banco = new CriaBancoDatas(context);
     }
 
-    public String insereData(int dia, int feito){
+    public String insereData(String dia, int feito){
         ContentValues valores;
         long resultado;
 
@@ -32,25 +32,25 @@ public class BancoControllerDatas {
             return "Registro Inserido com sucesso";
     }
 
-   /* public Cursor carregaDados(){
-
-    }
-
-    public Cursor carregaDadoById(int id){
+    public Cursor carregaDados(){
         Cursor cursor;
+        String[] campos =  {banco.DIA,banco.FEITO};
+        db = banco.getReadableDatabase();
+        cursor = db.query(banco.TABELADATAS, campos, null, null, null, null, null, null);
 
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
         return cursor;
     }
 
     public void deletaLinhas(){
-
         db = banco.getReadableDatabase();
         db.delete(CriaBancoDatas.TABELADATAS,null,null);
         db.close();
 
-    }*/
-
-
+    }
 
 
 

@@ -30,7 +30,7 @@ public class CriaBancoDatas extends SQLiteOpenHelper {
 
         String sqldatas = "CREATE TABLE " + TABELADATAS +"("
                 + ID + " integer primary key autoincrement,"
-                + DIA + " integer,"
+                + DIA + " string,"
                 + FEITO + " integer"
                 +")";
 
