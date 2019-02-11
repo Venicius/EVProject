@@ -79,7 +79,6 @@ public class BancoController {
     }
 
     public void deletaLinhas(){
-
         db = banco.getReadableDatabase();
         db.delete(CriaBanco.TABELA,null,null);
         db.close();

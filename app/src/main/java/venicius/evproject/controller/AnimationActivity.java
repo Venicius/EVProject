@@ -222,7 +222,7 @@ public class AnimationActivity extends AppCompatActivity {
                 startTimer();
             } else {
                 Calendar calendar1 = new GregorianCalendar();
-                final BancoController crud2 = new BancoController(getBaseContext());
+                final BancoControllerDatas crud2 = new BancoControllerDatas(getBaseContext());
                 String resultado;
                 Date data = new Date();
                 resultado = crud2.insereData(2,1);
