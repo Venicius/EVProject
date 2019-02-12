@@ -75,9 +75,6 @@ public class AnimationActivity extends AppCompatActivity {
                 "venicius.evp.PREFERENCE_FILE_KEY",
                 Context.MODE_PRIVATE);
 
-
-
-
         flagSeq = sharedPref.getBoolean("sequencia", false);
 
         if(!flagSeq){
@@ -224,17 +221,25 @@ public class AnimationActivity extends AppCompatActivity {
             } else {
                 Calendar calendar = new GregorianCalendar();
                 final BancoControllerDatas crud2 = new BancoControllerDatas(getBaseContext());
+
                 String resultado;
 
-                SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
                 Date dt = new Date();
-                String dataformatada=dtFormat.format(dt);
+                resultado = crud2.insereData(dt,1);
 
-               resultado = crud2.insereData(dataformatada,1);
+                //Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+                Toast toast = Toast.makeText(getApplicationContext(), "FIM",Toast.LENGTH_LONG);
+                toast.show();
 
-                Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
-                //Toast toast = Toast.makeText(getApplicationContext(), "FIM",Toast.LENGTH_LONG);
-                //toast.show();
+                SharedPreferences sharedPref = getSharedPreferences(
+                        "venicius.evp.PREFERENCE_FILE_KEY",
+                        Context.MODE_PRIVATE);
+
+                //salvando configurações
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putBoolean("banco",true);
+                editor.apply();
+
                 startActivity(intentMain);
             }
         }

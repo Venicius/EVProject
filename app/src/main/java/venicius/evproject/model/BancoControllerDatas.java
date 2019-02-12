@@ -5,6 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class BancoControllerDatas {
 
     private SQLiteDatabase db;
@@ -14,16 +17,18 @@ public class BancoControllerDatas {
         banco = new CriaBancoDatas(context);
     }
 
-    public String insereData(String dia, int feito){
+    public String insereData(Date dia, int feito){
         ContentValues valores;
         long resultado;
 
         db = banco.getWritableDatabase();
         valores = new ContentValues();
-        valores.put(CriaBanco.DIA, dia);
-        valores.put(CriaBanco.FEITO, feito);
 
-        resultado = db.insert(CriaBanco.TABELADATAS, null, valores);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        valores.put("data", dateFormat.format(dia));
+        db.insert(CriaBancoDatas.TABELADATAS, null, valores);
+
+        resultado = db.insert(CriaBancoDatas.TABELADATAS, null, valores);
         db.close();
 
         if (resultado ==-1)

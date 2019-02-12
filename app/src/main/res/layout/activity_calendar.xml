@@ -7,54 +7,98 @@
     android:orientation="vertical"
     tools:context=".controller.CalendarActivity">
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:orientation="vertical">
-
-        <com.applandeo.materialcalendarview.CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <TextView
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.applandeo.materialcalendarview.CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </com.applandeo.materialcalendarview.CalendarView>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Frequência:"
-                android:gravity="center|center"
-                android:textSize="20dp"
-                android:textColor="#000"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Geral:"
-                android:gravity="left|center"
-                android:textSize="10dp"
-                android:textColor="#000"
-                android:layout_margin="15dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|center"
+                    android:layout_marginTop="10dp"
+                    android:text="Frequência:"
+                    android:textColor="#000"
+                    android:textSize="10dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="15 dias:"
-                android:gravity="left|center"
-                android:textSize="10dp"
-                android:textColor="#000"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="15dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left|center"
+                        android:text="Geral:"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:id="@+id/contagemGeral"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="10dp"
+                        android:text="10"
+                        android:gravity="left|center"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="left|center"
+                        android:text="15 dias:"
+                        android:textColor="#000"
+                        android:textSize="10dp" />
+
+                    <TextView
+                        android:id="@+id/contagem15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/btnVoltar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|center"
+                    android:text="voltar"
+                    />
+
+                </LinearLayout>
 
         </LinearLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
