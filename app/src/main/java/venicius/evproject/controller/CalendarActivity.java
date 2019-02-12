@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.applandeo.materialcalendarview.EventDay;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -45,8 +47,9 @@ public class CalendarActivity extends AppCompatActivity {
         boolean flagSeq = sharedPref.getBoolean("banco", false);
 
 
-        int contGeralFeitos=0;
+
         TextView txGeral = (TextView) findViewById(R.id.contagemGeral);
+        TextView tx15 = (TextView) findViewById(R.id.contagem15);
 
         if(flagSeq) {
 
@@ -68,15 +71,18 @@ public class CalendarActivity extends AppCompatActivity {
                 }
 
                 dia = cursor.getString(cursor.getColumnIndexOrThrow(CriaBancoDatas.DIA));
-                contGeralFeitos++;
                 calendar = null;
                 calendar = new GregorianCalendar();
                 calendar.set(Integer.parseInt(dia.substring(0, 4)), (Integer.parseInt(dia.substring(5, 7))) - 1, Integer.parseInt(dia.substring(8, 10)));
                 events.add(new EventDay(calendar, R.drawable.check));
                 cursor.moveToNext();
             }
-            txGeral.setText(String.valueOf(contGeralFeitos));
+
+            txGeral.setText(crud.contagemGeral() + " dia(s) completo(s).");
+            tx15.setText(crud.contagem15() + " dia(s) completo(s).");
         }
+
+
 
         Button btVoltar = findViewById(R.id.btnVoltar);
         btVoltar.setOnClickListener(new View.OnClickListener() {

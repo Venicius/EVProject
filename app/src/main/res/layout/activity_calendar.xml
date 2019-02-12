@@ -34,7 +34,7 @@
                     android:layout_marginTop="10dp"
                     android:text="Frequência:"
                     android:textColor="#000"
-                    android:textSize="10dp" />
+                    android:textSize="20dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -49,18 +49,17 @@
                         android:gravity="left|center"
                         android:text="Geral:"
                         android:textColor="#000"
-                        android:textSize="10dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/contagemGeral"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
-                        android:textSize="10dp"
-                        android:text="10"
+                        android:layout_marginTop="10dp"
                         android:gravity="left|center"
-                        />
+                        android:text="0"
+                        android:textSize="15dp" />
 
                 </LinearLayout>
 
@@ -71,19 +70,23 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_marginTop="5dp"
                         android:gravity="left|center"
                         android:text="15 dias:"
                         android:textColor="#000"
-                        android:textSize="10dp" />
+                        android:textSize="15dp" />
 
                     <TextView
                         android:id="@+id/contagem15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="left|center"
+                        android:text="0"
+                        android:textSize="15dp" />
 
                 </LinearLayout>
 
@@ -94,6 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|center"
                     android:text="voltar"
+                    android:layout_marginTop="10dp"
                     />
 
                 </LinearLayout>

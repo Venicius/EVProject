@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -57,6 +58,25 @@ public class BancoControllerDatas {
 
     }
 
+    public int contagemGeral(){
+        int cont=0;
+        Cursor cursor;
+        String[] campos =  {banco.DIA};
+        db = banco.getReadableDatabase();
+        cursor = db.query(banco.TABELADATAS, campos, null, null, CriaBancoDatas.DIA, null, null, null);
+        cont = cursor.getCount();
+        return cont;
+    }
+
+    public int contagem15(){
+        int cont=0;
+        Cursor cursor;
+        String[] campos =  {banco.DIA};
+        db = banco.getReadableDatabase();
+        cursor = db.query(banco.TABELADATAS, campos, null, null,  CriaBancoDatas.DIA, null, null, "15");
+        cont = cursor.getCount();
+        return cont;
+    }
 
 
 }
