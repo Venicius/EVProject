@@ -38,7 +38,7 @@ public class AnimationActivity extends AppCompatActivity {
     private ImageView imgFundo;
     private MediaPlayer mp;
 
-    Boolean flagSeq;
+    int flagSeq;
     Boolean flagAudio = true;
 
     Handler mHandler = new Handler();
@@ -75,9 +75,9 @@ public class AnimationActivity extends AppCompatActivity {
                 "venicius.evp.PREFERENCE_FILE_KEY",
                 Context.MODE_PRIVATE);
 
-        flagSeq = sharedPref.getBoolean("sequencia", false);
+        flagSeq = sharedPref.getInt("sequencias", 0);
 
-        if(!flagSeq){
+        if(flagSeq==0){
 
             arrayListFundos.add(R.drawable.fundo_alvo);
             arrayListFundos.add(R.drawable.fundo_preto);
@@ -173,7 +173,106 @@ public class AnimationActivity extends AppCompatActivity {
             arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
 
             mHandler.postDelayed(mRunNovaImagem, 00000);
-    } else {
+    } else if (flagSeq==1){
+
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_preto);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_alvovermelho_verde);
+            arrayListFundos.add(R.drawable.fundo_alvoazul_amarelo);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_alvoxadrez);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_amarelo);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_azulescuro);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_caracol);
+            arrayListFundos.add(R.drawable.fundo_lilas);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_amarelo);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_cinza);
+
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_galinho);
+            arrayListCentros.add(R.drawable.centro_rostoamarelofeliz);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_boneco);
+            arrayListCentros.add(R.drawable.centro_panda);
+            arrayListCentros.add(R.drawable.centro_rostoamarelofeliz2);
+            arrayListCentros.add(R.drawable.centro_macaco);
+            arrayListCentros.add(R.drawable.centro_tigre);
+            arrayListCentros.add(R.drawable.centro_pintinho);
+            arrayListCentros.add(R.drawable.centro_cavalo);
+            arrayListCentros.add(R.drawable.centro_rostovermelho);
+            arrayListCentros.add(R.drawable.centro_rostoamarelofeliz3);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_sapo);
+            arrayListCentros.add(R.drawable.centro_girafa);
+            arrayListCentros.add(R.drawable.centro_caracolvermelho);
+            arrayListCentros.add(R.drawable.centro_garoto1);
+            arrayListCentros.add(R.drawable.centro_garoto2);
+            arrayListCentros.add(R.drawable.centro_rostoverde);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_lagarta);
+            arrayListCentros.add(R.drawable.centro_guaxinin);
+            arrayListCentros.add(R.drawable.centro_porco);
+            arrayListCentros.add(R.drawable.centro_cao);
+            arrayListCentros.add(R.drawable.centro_garoto3);
+            arrayListCentros.add(R.drawable.centro_pinguin);
+            arrayListCentros.add(R.drawable.centro_menina1);
+
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_galinho);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_panda);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_macaco);
+            arrayListSons.add(R.raw.som_tigre);
+            arrayListSons.add(R.raw.som_pintinho);
+            arrayListSons.add(R.raw.som_cavalo);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_sapo);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_guaxinin);
+            arrayListSons.add(R.raw.som_porco);
+            arrayListSons.add(R.raw.som_cao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+
+            mHandler.postDelayed(mRunNovaImagem, 00000);
+
+        }
+
+    else {
 
             final BancoController crud = new BancoController(getBaseContext());
             Cursor cursor;

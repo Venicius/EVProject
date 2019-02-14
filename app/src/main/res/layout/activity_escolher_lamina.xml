@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".controller.ConfigActivity">
+    tools:context=".controller.EscolherLaminaActivity">
 
-     <Button
-        android:id="@+id/btnEditarSequencia"
+    <Button
+        android:id="@+id/btnFacil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -17,12 +17,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:textColor="#FFF"
-        android:text="Nova Lâmina"
+        android:text="Fácil"
         android:background="@color/colorPrimary"
         />
 
     <Button
-        android:id="@+id/btnSequencias"
+        android:id="@+id/btnMedia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -32,11 +32,11 @@
         android:layout_marginRight="8dp"
         android:textColor="#FFF"
         android:background="@color/colorPrimary"
-        android:text="Lâminas pré-definidas"
+        android:text="Média"
         />
 
     <Button
-        android:id="@+id/btnSeqPadrao"
+        android:id="@+id/btnDificil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -46,5 +46,5 @@
         android:layout_marginRight="8dp"
         android:textColor="#FFF"
         android:background="@color/colorPrimary"
-        android:text="Lâmina Padrão" />
+        android:text="Difícil" />
 </LinearLayout>

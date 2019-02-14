@@ -14,6 +14,7 @@ public class ConfigActivity extends AppCompatActivity {
 
     Button btnEditarSq;
     Button btnSeqPadrao;
+    Button btnEscolher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +23,12 @@ public class ConfigActivity extends AppCompatActivity {
 
         btnEditarSq = (Button) findViewById(R.id.btnEditarSequencia);
         btnSeqPadrao = (Button) findViewById(R.id.btnSeqPadrao);
+        btnEscolher = (Button) findViewById(R.id.btnSequencias);
+
 
         final Intent intentEditar = new Intent(this, EditarSequenciaActivity.class);
         final Intent intentMain = new Intent(this, MainActivity.class);
+        final Intent intentEscolher = new Intent(this, EscolherLaminaActivity.class);
 
         btnEditarSq.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,10 +46,17 @@ public class ConfigActivity extends AppCompatActivity {
 
                 //salvando configurações
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putBoolean("sequencia",false);
+                editor.putInt("sequencias",0);
                 editor.apply();
 
                 startActivity(intentMain);
+            }
+        });
+
+        btnEscolher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intentEscolher);
             }
         });
 
