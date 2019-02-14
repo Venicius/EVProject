@@ -176,35 +176,36 @@ public class AnimationActivity extends AppCompatActivity {
     } else if (flagSeq==1){
 
             arrayListFundos.add(R.drawable.fundo_alvo);
-            arrayListFundos.add(R.drawable.fundo_preto);
             arrayListFundos.add(R.drawable.fundo_azul);
-            arrayListFundos.add(R.drawable.fundo_xadrez);
             arrayListFundos.add(R.drawable.fundo_alvovermelho_verde);
+            arrayListFundos.add(R.drawable.fundo_amarelo);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_amarelo);
+            //arrayListFundos.add(R.drawable.fundo_branco);
             arrayListFundos.add(R.drawable.fundo_alvoazul_amarelo);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            //arrayListFundos.add(R.drawable.fundo_alvopontudo);
+            arrayListFundos.add(R.drawable.fundo_azul);
             arrayListFundos.add(R.drawable.fundo_verdelimao);
             arrayListFundos.add(R.drawable.fundo_vermelho);
-            arrayListFundos.add(R.drawable.fundo_azul);
-            arrayListFundos.add(R.drawable.fundo_xadrez);
-            arrayListFundos.add(R.drawable.fundo_verdelimao);
-            arrayListFundos.add(R.drawable.fundo_azul);
-            arrayListFundos.add(R.drawable.fundo_alvo);
-            arrayListFundos.add(R.drawable.fundo_verdelimao);
-            arrayListFundos.add(R.drawable.fundo_azul);
-            arrayListFundos.add(R.drawable.fundo_alvoxadrez);
-            arrayListFundos.add(R.drawable.fundo_alvo);
-            arrayListFundos.add(R.drawable.fundo_xadrez);
             arrayListFundos.add(R.drawable.fundo_amarelo);
-            arrayListFundos.add(R.drawable.fundo_vermelho);
-            arrayListFundos.add(R.drawable.fundo_azulescuro);
-            arrayListFundos.add(R.drawable.fundo_vermelho);
-            arrayListFundos.add(R.drawable.fundo_caracol);
-            arrayListFundos.add(R.drawable.fundo_lilas);
+            //arrayListFundos.add(R.drawable.fundo_branco);
             arrayListFundos.add(R.drawable.fundo_azul);
-            arrayListFundos.add(R.drawable.fundo_alvo);
-            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_amarelo);
+            //arrayListFundos.add(R.drawable.fundo_branco);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            //arrayListFundos.add(R.drawable.fundo_branco);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            //arrayListFundos.add(R.drawable.fundo_branco);
+            arrayListFundos.add(R.drawable.fundo_azul);
             arrayListFundos.add(R.drawable.fundo_amarelo);
             arrayListFundos.add(R.drawable.fundo_verdelimao);
-            arrayListFundos.add(R.drawable.fundo_cinza);
+
 
             arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_galinho);
