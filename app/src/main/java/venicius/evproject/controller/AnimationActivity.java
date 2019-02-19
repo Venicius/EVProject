@@ -77,7 +77,7 @@ public class AnimationActivity extends AppCompatActivity {
 
         flagSeq = sharedPref.getInt("sequencias", 0);
 
-        if(flagSeq==0){
+        if(flagSeq==0){ //Padrao
 
             arrayListFundos.add(R.drawable.fundo_alvo);
             arrayListFundos.add(R.drawable.fundo_preto);
@@ -173,7 +173,7 @@ public class AnimationActivity extends AppCompatActivity {
             arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
 
             mHandler.postDelayed(mRunNovaImagem, 00000);
-    } else if (flagSeq==1){
+    } else if (flagSeq==1){//Fácil
 
             arrayListFundos.add(R.drawable.fundo_alvo);
             arrayListFundos.add(R.drawable.fundo_azul);
@@ -210,33 +210,33 @@ public class AnimationActivity extends AppCompatActivity {
             arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_rostoamarelofeliz);
             arrayListCentros.add(R.drawable.centro_transparente);
-            //arrayListCentros.add(R.drawable.centro_rostopreto1);
+            arrayListCentros.add(R.drawable.centro_rostopreto1);
             arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_pintinho);
-            //arrayListCentros.add(R.drawable.centro_alvopreto);
-            //arrayListCentros.add(R.drawable.centro_caracolamarelo);
-            //arrayListCentros.add(R.drawable.centro_rostopreto2);
+            arrayListCentros.add(R.drawable.centro_alvopreto);
+            arrayListCentros.add(R.drawable.centro_caracolamarelo);
+            arrayListCentros.add(R.drawable.centro_rostopreto2);
             arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_rostoverde);
             arrayListCentros.add(R.drawable.centro_transparente);
             arrayListCentros.add(R.drawable.centro_rostoamarelofeliz2);
             arrayListCentros.add(R.drawable.centro_boneco);
-            //arrayListCentros.add(R.drawable.centro_rostopreto2);
-            //arrayListCentros.add(R.drawable.centro_alvopreto);
-            //arrayListCentros.add(R.drawable.centro_rostopreto1);
-            //arrayListCentros.add(R.drawable.centro_alvopreto);
-            //arrayListCentros.add(R.drawable.centro_rosto2);
-           // arrayListCentros.add(R.drawable.centro_alvopreto);
-            //arrayListCentros.add(R.drawable.centro_rostobranco);
+            arrayListCentros.add(R.drawable.centro_rostopreto2);
+            arrayListCentros.add(R.drawable.centro_alvopreto);
+            arrayListCentros.add(R.drawable.centro_rostopreto1);
+            arrayListCentros.add(R.drawable.centro_alvopreto);
+            arrayListCentros.add(R.drawable.centro_rostopreto2);
+            arrayListCentros.add(R.drawable.centro_alvopreto);
+            arrayListCentros.add(R.drawable.centro_rostobranco);
             arrayListCentros.add(R.drawable.centro_caracolvermelho);
             arrayListCentros.add(R.drawable.fundo_alvopontudo);
-            //arrayListCentros.add(R.drawable.centro_rostopreto2);
+            arrayListCentros.add(R.drawable.centro_rostopreto2);
             arrayListCentros.add(R.drawable.centro_rostoamarelofeliz3);
-            //arrayListCentros.add(R.drawable.centro_rostoverde2);
-            //arrayListCentros.add(R.drawable.centro_circuloxadrez);
+            arrayListCentros.add(R.drawable.centro_rostoverde2);
+            arrayListCentros.add(R.drawable.centro_circuloxadrez);
             arrayListCentros.add(R.drawable.centro_boneco);
-            //arrayListCentros.add(R.drawable.centro_rostopreto1);
-            //arrayListCentros.add(R.drawable.centro_alvopreto);
+            arrayListCentros.add(R.drawable.centro_rostopreto1);
+            arrayListCentros.add(R.drawable.centro_alvopreto);
 
             arrayListSons.add(R.raw.som_padrao);
             arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
@@ -271,9 +271,205 @@ public class AnimationActivity extends AppCompatActivity {
 
             mHandler.postDelayed(mRunNovaImagem, 00000);
 
-        }
+        } else if (flagSeq==2){//Média
 
-    else {
+            arrayListFundos.add(R.drawable.fundo_preto);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_alvovermelho_verde);
+            arrayListFundos.add(R.drawable.fundo_lilas);
+            arrayListFundos.add(R.drawable.fundo_caracol);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_amarelo);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_branco);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_amarelo);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_alvopontudo);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_xadrezamarelopreto);
+
+
+            arrayListCentros.add(R.drawable.centro_galinho);
+            arrayListCentros.add(R.drawable.centro_porcoroxo);
+            arrayListCentros.add(R.drawable.centro_rostoamarelofeliz2);
+            arrayListCentros.add(R.drawable.centro_cavalo);
+            arrayListCentros.add(R.drawable.centro_caracolamarelo);
+            arrayListCentros.add(R.drawable.centro_macaco);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_ratoverde);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_boneco);
+            arrayListCentros.add(R.drawable.centro_girafa);
+            arrayListCentros.add(R.drawable.centro_rostoamarelofeliz2);
+            arrayListCentros.add(R.drawable.centro_elefante);
+            arrayListCentros.add(R.drawable.centro_boneco);
+            arrayListCentros.add(R.drawable.centro_panda2);
+            arrayListCentros.add(R.drawable.centro_alvopreto);
+            arrayListCentros.add(R.drawable.centro_circuloxadrez);
+            arrayListCentros.add(R.drawable.centro_rostoverde2);
+            arrayListCentros.add(R.drawable.centro_macaco);
+            arrayListCentros.add(R.drawable.centro_panda2);
+            arrayListCentros.add(R.drawable.centro_cavalo);
+            arrayListCentros.add(R.drawable.centro_pintinho);
+            arrayListCentros.add(R.drawable.centro_caracolvermelho);
+            arrayListCentros.add(R.drawable.centro_girafa);
+            arrayListCentros.add(R.drawable.centro_alvopreto);
+            arrayListCentros.add(R.drawable.centro_rostoverde2);
+            arrayListCentros.add(R.drawable.fundo_alvopontudo);
+            arrayListCentros.add(R.drawable.centro_elefante);
+            arrayListCentros.add(R.drawable.centro_porcoroxo);
+            arrayListCentros.add(R.drawable.centro_passaroazul);
+
+
+
+            arrayListSons.add(R.raw.som_galinho);
+            arrayListSons.add(R.raw.som_porco);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_cavalo);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_macaco);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_elefante);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_panda);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_macaco);
+            arrayListSons.add(R.raw.som_panda);
+            arrayListSons.add(R.raw.som_cavalo);
+            arrayListSons.add(R.raw.som_pintinho);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_elefante);
+            arrayListSons.add(R.raw.som_porco);
+            arrayListSons.add(R.raw.som_passaro);
+
+            mHandler.postDelayed(mRunNovaImagem, 00000);
+
+        } else if (flagSeq==3){//difícil
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_alvoxadrez);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_xadrezamarelopreto);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_lilas);
+            arrayListFundos.add(R.drawable.fundo_xadrezverdepreto);
+            arrayListFundos.add(R.drawable.fundo_marron);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_azulescuro);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_xadrezamarelopreto);
+            arrayListFundos.add(R.drawable.fundo_verdemusgo);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_azulclaro);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+           arrayListFundos.add(R.drawable.fundo_preto);
+            arrayListFundos.add(R.drawable.fundo_azulmarinho);
+            arrayListFundos.add(R.drawable.fundo_xadrezvermelhopreto);
+            arrayListFundos.add(R.drawable.fundo_vinho);
+            arrayListFundos.add(R.drawable.fundo_xadrez);
+            arrayListFundos.add(R.drawable.fundo_verdelimao);
+            arrayListFundos.add(R.drawable.fundo_azul);
+            arrayListFundos.add(R.drawable.fundo_alvo);
+            arrayListFundos.add(R.drawable.fundo_vermelho);
+            arrayListFundos.add(R.drawable.fundo_amarelo);
+
+
+            arrayListCentros.add(R.drawable.centro_panda);
+            arrayListCentros.add(R.drawable.centro_sapo);
+            arrayListCentros.add(R.drawable.centro_guaxinin);
+            arrayListCentros.add(R.drawable.centro_transparente);
+            arrayListCentros.add(R.drawable.centro_tigre);
+            arrayListCentros.add(R.drawable.centro_passaroazul);
+            arrayListCentros.add(R.drawable.centro_elefante);
+            arrayListCentros.add(R.drawable.centro_garoto1);
+            arrayListCentros.add(R.drawable.centro_girafa);
+            arrayListCentros.add(R.drawable.centro_lagarta);
+            arrayListCentros.add(R.drawable.centro_meninaruiva);
+            arrayListCentros.add(R.drawable.centro_passaroazul);
+            arrayListCentros.add(R.drawable.centro_cavalo);
+            arrayListCentros.add(R.drawable.centro_garoto2);
+            arrayListCentros.add(R.drawable.centro_tigre);
+            arrayListCentros.add(R.drawable.centro_elefante);
+            arrayListCentros.add(R.drawable.centro_coelhoroxo);
+            arrayListCentros.add(R.drawable.centro_sapo);
+            arrayListCentros.add(R.drawable.centro_avobigode);
+            arrayListCentros.add(R.drawable.centro_panda2);
+            arrayListCentros.add(R.drawable.centro_galinho);
+            arrayListCentros.add(R.drawable.centro_vaca);
+            arrayListCentros.add(R.drawable.centro_lagarta);
+            arrayListCentros.add(R.drawable.centro_vovo);
+            arrayListCentros.add(R.drawable.centro_bebe);
+            arrayListCentros.add(R.drawable.centro_pinguin);
+            arrayListCentros.add(R.drawable.centro_boneco);
+            arrayListCentros.add(R.drawable.centro_coruja);
+            arrayListCentros.add(R.drawable.centro_rostoverde2);
+            arrayListCentros.add(R.drawable.centro_alvopreto);
+
+
+
+            arrayListSons.add(R.raw.som_panda);
+            arrayListSons.add(R.raw.som_sapo);
+            arrayListSons.add(R.raw.som_guaxinin);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_tigre);
+            arrayListSons.add(R.raw.som_passaro);
+            arrayListSons.add(R.raw.som_elefante);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_passaro);
+            arrayListSons.add(R.raw.som_cavalo);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_tigre);
+            arrayListSons.add(R.raw.som_elefante);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_sapo);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_panda);
+            arrayListSons.add(R.raw.som_galinho);
+            arrayListSons.add(R.raw.som_vaca);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_padrao);
+            arrayListSons.add(R.raw.som_bebe);
+            arrayListSons.add(R.raw.som_pintinho);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_coruja);
+            arrayListSons.add(R.raw.som_rostinhoamarelofeliz);
+            arrayListSons.add(R.raw.som_padrao);
+
+            mHandler.postDelayed(mRunNovaImagem, 00000);
+        } else if (flagSeq==4) {
 
             final BancoController crud = new BancoController(getBaseContext());
             Cursor cursor;

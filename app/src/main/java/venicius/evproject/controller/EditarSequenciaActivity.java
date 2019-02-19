@@ -35,6 +35,7 @@ public class EditarSequenciaActivity extends AppCompatActivity {
     int clickedItemFundoNameSom;
     Button adicionar;
     Button finalizar;
+    Boolean flag;
 
     Intent intentMain;
 
@@ -46,6 +47,7 @@ public class EditarSequenciaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_editar_sequencia);
 
         intentMain = new Intent(this,MainActivity.class);
+        flag = false;
 
         numImagem = (TextView) findViewById(R.id.numeroImagem);
         initListFundos();
@@ -118,7 +120,7 @@ public class EditarSequenciaActivity extends AppCompatActivity {
                 numImagem.setText(String.valueOf(i));
                 String resultado;
                 resultado = crud.insereDado(clickedItemFundoNameFundo,clickedItemFundoNameCentro,clickedItemFundoNameSom);
-
+                flag=true;
                // Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
 
             }
@@ -129,20 +131,26 @@ public class EditarSequenciaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences sharedPref = getSharedPreferences(
-                        "venicius.evp.PREFERENCE_FILE_KEY",
-                        Context.MODE_PRIVATE);
+                if (flag) {
 
-                //salvando configurações
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putBoolean("sequencia",true);
-                editor.apply();
+                    SharedPreferences sharedPref = getSharedPreferences(
+                            "venicius.evp.PREFERENCE_FILE_KEY",
+                            Context.MODE_PRIVATE);
 
-                Toast toast = Toast.makeText(getApplicationContext(), "Sequência criada!",Toast.LENGTH_SHORT);
-                toast.show();
-                startActivity(intentMain);
+                    //salvando configurações
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putInt("sequencias", 4);
+                    editor.apply();
 
-             }
+                    Toast toast = Toast.makeText(getApplicationContext(), "Sequência criada!", Toast.LENGTH_SHORT);
+                    toast.show();
+                    startActivity(intentMain);
+
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Adicione ao menos uma imagem!",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            }
         });
     }
 
