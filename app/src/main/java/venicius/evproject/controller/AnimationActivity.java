@@ -35,7 +35,6 @@ import venicius.evproject.model.CriaBanco;
 public class AnimationActivity extends AppCompatActivity {
     private View mContentView;
     private ImageView imgCentral;
-    private ImageView imgFundo;
     private MediaPlayer mp;
 
     int flagSeq;
@@ -69,7 +68,6 @@ public class AnimationActivity extends AppCompatActivity {
         intentMain = new Intent(this,MainActivity.class);
         mContentView = findViewById(R.id.fullscreen_content2);
         imgCentral = (ImageView) findViewById(R.id.imageView);
-        imgFundo = (ImageView) findViewById(R.id.imageView3);
 
         SharedPreferences sharedPref = this.getSharedPreferences(
                 "venicius.evp.PREFERENCE_FILE_KEY",
@@ -495,8 +493,6 @@ public class AnimationActivity extends AppCompatActivity {
         }
 
     }
-
-
 
     private Runnable mRunNovaImagem = new Runnable () {
         @Override
