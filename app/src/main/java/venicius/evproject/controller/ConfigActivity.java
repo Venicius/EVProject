@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import venicius.evproject.R;
 
@@ -59,7 +60,8 @@ public class ConfigActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putInt("sequencias",0);
                         editor.apply();
-
+                        Toast toast2 = Toast.makeText(getApplicationContext(), "Aplicativo pronto para iniciar!", Toast.LENGTH_LONG);
+                        toast2.show();
                         startActivity(intentMain);
 
                     }

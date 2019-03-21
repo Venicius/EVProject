@@ -497,68 +497,50 @@ public class AnimationActivity extends AppCompatActivity {
     private Runnable mRunNovaImagem = new Runnable () {
         @Override
         public void run() {
-            if (cont < arrayListFundos.size()){
-                imgCentral.setImageResource(arrayListCentros.get(cont));
-                //imgFundo.setImageResource(arrayListFundos.get(cont));
-                mContentView.setBackgroundResource(arrayListFundos.get(cont));
-                imgCentral.setAnimation(null);
-                mContentView.setAnimation(null);
-               //imgFundo.setAnimation(null);
-                if(flagAudio){
-                    mp = MediaPlayer.create(AnimationActivity.this, arrayListSons.get(cont));
+            if (arrayListFundos != null) {
+                if (cont < arrayListFundos.size()) {
+                    imgCentral.setImageResource(arrayListCentros.get(cont));
+                    //imgFundo.setImageResource(arrayListFundos.get(cont));
+                    mContentView.setBackgroundResource(arrayListFundos.get(cont));
+                    imgCentral.setAnimation(null);
+                    mContentView.setAnimation(null);
+                    //imgFundo.setAnimation(null);
+                    if (flagAudio) {
+                        mp = MediaPlayer.create(AnimationActivity.this, arrayListSons.get(cont));
+                    }
+                    mContentView.setClickable(false);
+                    mHandler.postDelayed(mRunInicial, 3000);
+                    startTimer();
+                } else {
+                    Calendar calendar = new GregorianCalendar();
+                    final BancoControllerDatas crud2 = new BancoControllerDatas(getBaseContext());
+
+                    String resultado;
+
+                    Date dt = new Date();
+                    resultado = crud2.insereData(dt, 1);
+
+                    //Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+                    Toast toast = Toast.makeText(getApplicationContext(), "FIM", Toast.LENGTH_LONG);
+                    toast.show();
+
+                    SharedPreferences sharedPref = getSharedPreferences(
+                            "venicius.evp.PREFERENCE_FILE_KEY",
+                            Context.MODE_PRIVATE);
+
+                    //salvando configurações
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putBoolean("banco", true);
+                    editor.apply();
+
+                    startActivity(intentMain);
                 }
-                mContentView.setClickable(false);
-                mHandler.postDelayed(mRunInicial, 3000);
-                startTimer();
-            } else {
-                Calendar calendar = new GregorianCalendar();
-                final BancoControllerDatas crud2 = new BancoControllerDatas(getBaseContext());
-
-                String resultado;
-
-                Date dt = new Date();
-                resultado = crud2.insereData(dt,1);
-
-                //Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
-                Toast toast = Toast.makeText(getApplicationContext(), "FIM",Toast.LENGTH_LONG);
-                toast.show();
-
-                SharedPreferences sharedPref = getSharedPreferences(
-                        "venicius.evp.PREFERENCE_FILE_KEY",
-                        Context.MODE_PRIVATE);
-
-                //salvando configurações
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putBoolean("banco",true);
-                editor.apply();
-
-                startActivity(intentMain);
             }
         }
     };
 
-    //animação da imagem, ao tocar ou ao fim do tempo
-
-    private void animarImagem(){
-        Animation animZoomIn;
-        animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
-
-        if(arrayListCentros.get(cont) == R.drawable.centro_transparente){
-            mContentView.startAnimation(animZoomIn);
-        } else {
-            imgCentral.startAnimation(animZoomIn);
-        }
-        if(mp!=null) {
-            mp.start();
-        }
-        pauseTimer();
-        resetTimer();
-        cont++;
-        //depois dos 3 segundos de animação, + 3 de espera até passar o proximo slide
-        mHandler.postDelayed(mRunNovaImagem, 6000);
-    }
-
-    private void startTimer() {
+   //contador para quando nao houver clique
+  private void startTimer() {
         mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -589,6 +571,27 @@ public class AnimationActivity extends AppCompatActivity {
                 });//tocou na imagem
         }
     };
+
+    //animação da imagem, ao tocar ou ao fim do tempo
+
+    private void animarImagem(){
+        Animation animZoomIn;
+        animZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
+
+        if(arrayListCentros.get(cont) == R.drawable.centro_transparente){
+            mContentView.startAnimation(animZoomIn);
+        } else {
+            imgCentral.startAnimation(animZoomIn);
+        }
+        if(mp!=null) {
+            mp.start();
+        }
+        pauseTimer();
+        resetTimer();
+        cont++;
+        //depois dos 3 segundos de animação, + 3 de espera até passar o proximo slide
+        mHandler.postDelayed(mRunNovaImagem, 6000);
+    }
 
     //funções para pausar e zerar o contador
     private void pauseTimer() {
@@ -640,6 +643,9 @@ public class AnimationActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        arrayListCentros = null;
+        arrayListFundos = null;
+        arrayListSons = null;
         cont=0;
         this.finish();
     }
@@ -647,7 +653,10 @@ public class AnimationActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+       super.onDestroy();
+        arrayListCentros = null;
+        arrayListFundos = null;
+        arrayListSons = null;
         cont=0;
         this.finish();
     }
@@ -655,6 +664,9 @@ public class AnimationActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();  // Always call the superclass method first
+        arrayListCentros = null;
+        arrayListFundos = null;
+        arrayListSons = null;
         cont = 0;
         mp.stop();
         flagAudio=false;
@@ -667,6 +679,9 @@ public class AnimationActivity extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
+        arrayListCentros = null;
+        arrayListFundos = null;
+        arrayListSons = null;
         cont = 0;
         mp.stop();
         flagAudio=false;

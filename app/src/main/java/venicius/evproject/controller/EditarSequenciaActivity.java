@@ -144,6 +144,8 @@ public class EditarSequenciaActivity extends AppCompatActivity {
 
                     Toast toast = Toast.makeText(getApplicationContext(), "Sequência criada!", Toast.LENGTH_SHORT);
                     toast.show();
+                    Toast toast2 = Toast.makeText(getApplicationContext(), "Aplicativo pronto para iniciar!", Toast.LENGTH_LONG);
+                    toast2.show();
                     startActivity(intentMain);
 
                 } else {

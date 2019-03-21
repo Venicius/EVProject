@@ -40,6 +40,8 @@
         android:src="@drawable/btn_calendar"
         app:fabSize="mini" />
 
+
+    <!--
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="match_parent"
@@ -47,6 +49,6 @@
         android:layout_margin="5dp"
         app:srcCompat="@drawable/logos"
         android:layout_gravity="bottom|center"
-        />
+        /> -->
 
 </FrameLayout>
