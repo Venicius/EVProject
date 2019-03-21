@@ -390,7 +390,7 @@ public class AnimationActivity extends AppCompatActivity {
             arrayListFundos.add(R.drawable.fundo_alvo);
             arrayListFundos.add(R.drawable.fundo_azulclaro);
             arrayListFundos.add(R.drawable.fundo_verdelimao);
-           arrayListFundos.add(R.drawable.fundo_preto);
+            arrayListFundos.add(R.drawable.fundo_preto);
             arrayListFundos.add(R.drawable.fundo_azulmarinho);
             arrayListFundos.add(R.drawable.fundo_xadrezvermelhopreto);
             arrayListFundos.add(R.drawable.fundo_vinho);
@@ -487,7 +487,6 @@ public class AnimationActivity extends AppCompatActivity {
                 // arrayListSons.add(cursor.getColumnIndexOrThrow(CriaBanco.SOM));
                 cursor.moveToNext();
             }
-
             mHandler.postDelayed(mRunNovaImagem, 00000);
 
         }
